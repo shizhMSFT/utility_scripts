@@ -1,0 +1,8 @@
+#!/bin/bash
+# Requirements:
+# sudo apt install subversion
+if [ $# -lt 1 ]; then
+	echo "usage: $0 <github_url> [directory]"
+	exit 1
+fi
+svn export $(echo -n "$1" | sed 's/tree\/[^\/]*/trunk/') $2
